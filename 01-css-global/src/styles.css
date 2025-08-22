@@ -1,0 +1,474 @@
+/* --- 1. Configurações Globais --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+  /* Cores Claras */
+  --cor-fundo: #f3f4f6;
+  --cor-superficie: #ffffff;
+  --cor-texto-primario: #1f2937;
+  --cor-texto-secundario: #6b7280;
+  --cor-primaria: #3b82f6;
+  --cor-primaria-hover: #2563eb;
+  --cor-borda: #e5e7eb;
+  --cor-skeleton-base: #e5e7eb;
+
+  /* Sombras */
+  --sombra-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --sombra-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Outros */
+  --raio-borda: 0.5rem;
+  --duracao-transicao: 250ms;
+}
+
+.dark {
+  /* Cores Escuras */
+  --cor-fundo: #111827;
+  --cor-superficie: #1f2937;
+  --cor-texto-primario: #f9fafb;
+  --cor-texto-secundario: #9ca3af;
+  --cor-primaria: #60a5fa;
+  --cor-primaria-hover: #3b82f6;
+  --cor-borda: #374151;
+  --cor-skeleton-base: #374151;
+}
+
+/* --- 2. Estilos Base --- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  transition: background-color var(--duracao-transicao), color var(--duracao-transicao);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* --- 3. Componente Navbar --- */
+.navbar {
+  background-color: color-mix(in srgb, var(--cor-superficie) 80%, transparent);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: var(--sombra-md);
+  transition: background-color var(--duracao-transicao);
+}
+
+.navbar-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.navbar-acoes {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botao-tema {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cor-texto-secundario);
+  transition: background-color var(--duracao-transicao);
+}
+
+.botao-tema:hover {
+  background-color: color-mix(in srgb, var(--cor-borda) 50%, transparent);
+}
+
+.botao-tema:focus {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.badge-carrinho {
+  position: relative;
+  color: var(--cor-texto-secundario);
+}
+
+.contagem-carrinho {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+
+/* --- 4. Grelha de Produtos --- */
+.conteudo-principal {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.grelha-produtos {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;}
+
+
+/* --- 5. Componente Card de Produto --- */
+.card-produto {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-md);
+  overflow: hidden;
+  transition: transform var(--duracao-transicao), box-shadow var(--duracao-transicao);
+}
+
+.card-produto:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-xl);
+}
+
+.card-imagem-wrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: var(--cor-skeleton-base);
+}
+
+.card-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-tag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.card-tag.novo {
+  background-color: #22c55e;
+}
+
+.card-tag.promo {
+  background-color: #f59e0b;
+}
+
+.card-conteudo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+}
+
+.card-titulo {
+  font-weight: 600;
+  height: 3.5rem;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: #f59e0b;
+}
+
+.card-rating-texto {
+  color: var(--cor-texto-secundario);
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.card-preco {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-acao {
+  margin-top: auto;
+}
+
+/* --- 6. Componente Botão --- */
+.btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-borda);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all var(--duracao-transicao);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-solid {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+.btn-solid:hover:not(:disabled) {
+  background-color: var(--cor-primaria-hover);
+}
+
+/* --- 7. Componente Skeleton --- */
+.skeleton-card {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-md);
+  overflow: hidden;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton-card .pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--cor-skeleton-base);
+}
+
+.skeleton-imagem {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.skeleton-conteudo {
+  padding: 1rem;
+}
+
+.skeleton-linha {
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.skeleton-botao {
+  height: 2.5rem;
+  border-radius: var(--raio-borda);
+  margin-top: 1.5rem;
+}
+
+/* --- 8. Responsividade e Acessibilidade --- */
+@media (min-width: 481px) {
+  .grelha-produtos {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 2rem 0 0;
+  }
+}
+@media (max-width: 480px) {
+  .grelha-produtos {
+    gap: 1rem; 
+    margin: 0 2rem 0 0;
+  }
+
+  .navbar .badge-carrinho {
+    margin: 0 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .grelha-produtos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .grelha-produtos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --- 9. Estilos do Modal do Carrinho --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+  background-color: var(--cor-superficie);
+  padding: 1.5rem;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-xl);
+  width: 90%;
+  max-width: 500px;
+  color: var(--cor-texto-primario);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--cor-borda);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal-cabecalho h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.botao-fechar {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--cor-texto-secundario);
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-corpo {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carrinho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.carrinho-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-titulo {
+  font-weight: 600;
+}
+
+.item-preco {
+  color: var(--cor-texto-secundario);
+  font-size: 0.875rem;
+}
+
+.botao-remover {
+  background-color: transparent;
+  color: #ef4444; 
+  border: 1px solid #ef4444;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all var(--duracao-transicao);
+}
+
+.botao-remover:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+.modal-rodape {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.modal-rodape h3 {
+  margin-bottom: 1rem;
+}
+
+/* --- 10. Estilos do Rodapé --- */
+.footer {
+  background-color: var(--cor-superficie);
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.footer a {
+  color: var(--cor-primaria);
+  text-decoration: none; 
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.fa-bluesky {
+  color: var(--cor-primaria);
+  margin-left: 0.5rem;
+}
