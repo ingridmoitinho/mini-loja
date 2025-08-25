@@ -1,0 +1,38 @@
+.skeletonCard {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-md);
+  overflow: hidden;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--cor-skeleton-base);
+}
+
+.skeletonImagem {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.skeletonConteudo {
+  padding: 1rem;
+}
+
+.skeletonLinha {
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.skeletonBotao {
+  height: 2.5rem;
+  border-radius: var(--raio-borda);
+  margin-top: 1.5rem;
+}

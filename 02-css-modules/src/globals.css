@@ -1,0 +1,72 @@
+/* --- 1. Configurações Globais --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --cor-fundo: #f0f2f5;
+  --cor-superficie: #ffffff;
+  --cor-texto-primario: #1a202c;
+  --cor-texto-secundario: #4a5568;
+  --cor-primaria: #8a3ffc;
+  --cor-primaria-hover: #7b2cbf;
+  --cor-borda: #e2e8f0;
+  --cor-skeleton-base: #e2e8f0;
+
+  /* Sombras */
+  --sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sombra-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Outros */
+  --raio-borda: 0.5rem;
+  --duracao-transicao: 250ms;}
+
+
+body.dark {
+  --cor-fundo: #121212;
+  --cor-superficie: #1e1e1e;
+  --cor-texto-primario: #e2e8f0;
+  --cor-texto-secundario: #a0aec0;
+  --cor-primaria: #bb86fc;
+  --cor-primaria-hover: #a56ef4;
+  --cor-borda: #2d3748;
+  --cor-skeleton-base: #2d3748;
+}
+
+body.light {
+  --cor-fundo: #f0f2f5;
+  --cor-superficie: #ffffff;
+  --cor-texto-primario: #1a202c;
+  --cor-texto-secundario: #4a5568;
+  --cor-primaria: #8a3ffc;
+  --cor-primaria-hover: #7b2cbf;
+  --cor-borda: #e2e8f0;
+  --cor-skeleton-base: #e2e8f0;
+}
+
+/* --- 2. Estilos Base --- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  transition: background-color var(--duracao-transicao), color var(--duracao-transicao);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}

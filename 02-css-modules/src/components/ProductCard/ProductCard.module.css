@@ -1,0 +1,86 @@
+.cardProduto {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-md);
+  overflow: hidden;
+  transition: transform var(--duracao-transicao), box-shadow var(--duracao-transicao);
+}
+
+.cardProduto:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-xl);
+}
+
+.cardImagemWrapper {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: var(--cor-skeleton-base);
+}
+
+.cardImagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardTag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.novo {
+  background-color: #22c55e;
+}
+
+.promo {
+  background-color: #f59e0b;
+}
+
+.cardConteudo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+}
+
+.cardTitulo {
+  font-weight: 600;
+  height: 3.5rem;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cardRating {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: #f59e0b;
+}
+
+.cardRatingTexto {
+  color: var(--cor-texto-secundario);
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+}
+
+.cardPreco {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cardAcao {
+  margin-top: auto;
+}

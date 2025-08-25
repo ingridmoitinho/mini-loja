@@ -1,0 +1,29 @@
+.btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-borda);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all var(--duracao-transicao);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.solid {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+.solid:hover:not(:disabled) {
+  background-color: var(--cor-primaria-hover);
+}

@@ -1,0 +1,36 @@
+.conteudoPrincipal {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.grelhaProdutos {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* --- Responsividade --- */
+@media (min-width: 481px) {
+  .grelhaProdutos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grelhaProdutos {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 1rem;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .grelhaProdutos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .grelhaProdutos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
